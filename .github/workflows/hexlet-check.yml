@@ -9,7 +9,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          npm-version: 6
+      - name: "change version"
+        uses: reedyuk/npm-version@6.0.0
+        with:
+          version: "6.0.0"
+          package: "subproject-directory/"
+          git-tag-version: "true"
       - run: make setup
       - run: make start
       - run: make test
